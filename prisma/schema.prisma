@@ -1,0 +1,227 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String    @id @default(cuid())
+  email      String    @unique
+  name       String
+  password   String
+  role       Role      @default(USER)
+  work       WorkEnum  @default(OPERARIO)
+  accessName AreaEnum
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  sessions   Session[]
+  access     Access    @relation(fields: [accessName], references: [name])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String
+  expiresAt DateTime
+  email     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [email], references: [email])
+}
+
+model Access {
+  id        String    @id @default(cuid())
+  name      AreaEnum  @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  users     User[]
+  projects  Project[] @relation("AccessToProject")
+  types     Type[]    @relation("AccessToType")
+}
+
+model Schedule {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  input     String
+  output    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Brand {
+  id        String    @id @default(cuid())
+  name      BrandEnum @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  tasks     Task[]    @relation("BrandToTask")
+}
+
+model History {
+  id        String   @id @default(cuid())
+  name      String
+  action    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Type {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  form      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Tasks     Task[]
+  access    Access[] @relation("AccessToType")
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  name      String
+  notion    String   @unique
+  complete  Int      @default(0)
+  pending   Int      @default(0)
+  count     Int      @default(0)
+  priority  Int
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tasks     Task[]
+  access    Access[] @relation("AccessToProject")
+
+  @@unique([notion, priority])
+}
+
+model Task {
+  id             String    @id @default(cuid())
+  incrementId    Int       @unique @default(autoincrement())
+  notion         String?   @unique
+  name           String
+  solicitador    String
+  url            String?
+  notionUrl      String?
+  endDate        DateTime?
+  description    String
+  state          StateEnum @default(Estimacion)
+  asignado       String?
+  request        Json?
+  relation       String?
+  area           String?
+  type           String
+  numero_project Int
+  project        String
+  action         String?
+  numero         Int
+  priority       String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  estimate       Estimate?
+  actions        Action?   @relation(fields: [action], references: [notion])
+  areas          Area?     @relation(fields: [area], references: [notion])
+  priorities     Priority  @relation(fields: [priority, numero], references: [notion, number])
+  projects       Project   @relation(fields: [project, numero_project], references: [notion, priority])
+  types          Type      @relation(fields: [type], references: [name])
+  brands         Brand[]   @relation("BrandToTask")
+}
+
+model Estimate {
+  id        String   @id @default(cuid())
+  startDate DateTime
+  endDate   DateTime
+  taskId    String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  task      Task     @relation(fields: [taskId], references: [id])
+}
+
+model Priority {
+  id        String       @id @default(cuid())
+  name      PriorityEnum @unique
+  notion    String       @unique
+  number    Int          @unique
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  tasks     Task[]
+
+  @@unique([notion, number])
+}
+
+model Area {
+  id        String   @id @default(cuid())
+  notion    String   @unique
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  hours     Hours[]
+  tasks     Task[]
+}
+
+model Action {
+  id        String  @id @default(cuid())
+  name      String  @unique
+  notion    String  @unique
+  estimates Hours[]
+  tasks     Task[]
+}
+
+model Hours {
+  id        String   @id @default(cuid())
+  notion    String   @unique
+  name      String
+  mintime   Int?
+  time      Int
+  maxtime   Int?
+  area      String
+  action    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  actions   Action   @relation(fields: [action], references: [notion])
+  areas     Area     @relation(fields: [area], references: [notion])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AreaEnum {
+  ECOMMERCE
+  MARKETING
+  HELPER
+  MARKERPLACE
+  PROYECTO
+  BODEGA
+  DESIGN
+}
+
+enum WorkEnum {
+  JEFATURA
+  GERENCIA
+  OPERARIO
+}
+
+enum PriorityEnum {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum StateEnum {
+  Estimacion
+  Backlog
+  Proceso
+  Seguimiento
+  Completada
+  Cancelada
+}
+
+enum BrandEnum {
+  MAUI
+  RIP
+  VOLCOM
+  RUSTY
+  GLOBE
+  PROSURF
+  ADMIN
+}

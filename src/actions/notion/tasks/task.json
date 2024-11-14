@@ -1,0 +1,175 @@
+{
+  "object": "page",
+  "id": "2cea872a-a1b8-446d-af9b-11dc862e92da",
+  "created_time": "2024-08-22T14:46:00.000Z",
+  "last_edited_time": "2024-08-22T14:46:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "29ce5861-8d7b-4d8d-929d-897a2b7bb38c"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "29ce5861-8d7b-4d8d-929d-897a2b7bb38c"
+  },
+  "cover": null,
+  "icon": null,
+  "parent": {
+    "type": "database_id",
+    "database_id": "c36e67e7-e026-4c05-97e0-eec01ab0f3e6"
+  },
+  "archived": false,
+  "in_trash": false,
+  "properties": {
+    "Estado": {
+      "id": "%3BnuH",
+      "type": "status",
+      "status": {
+        "id": "nb;A",
+        "name": "Estimación",
+        "color": "default"
+      }
+    },
+    "Prioridades": {
+      "id": "BQik",
+      "type": "relation",
+      "relation": [
+        {
+          "id": "bfc1f74f-36ea-4c8b-8adc-bdb025445d16"
+        }
+      ],
+      "has_more": false
+    },
+    "State": {
+      "id": "GlfS",
+      "type": "formula",
+      "formula": {
+        "type": "boolean",
+        "boolean": false
+      }
+    },
+    "Sprints": {
+      "id": "ICtk",
+      "type": "relation",
+      "relation": [],
+      "has_more": false
+    },
+    "Projects": {
+      "id": "IlGm",
+      "type": "relation",
+      "relation": [
+        {
+          "id": "57f8ce17-e163-496f-aab7-193852cbe571"
+        }
+      ],
+      "has_more": false
+    },
+    "Limit": {
+      "id": "%5Drf%3B",
+      "type": "date",
+      "date": {
+        "start": "2024-08-29T13:57:00.000+00:00",
+        "end": null,
+        "time_zone": null
+      }
+    },
+    "Asignado": {
+      "id": "%5EGXA",
+      "type": "people",
+      "people": []
+    },
+    "DataBase": {
+      "id": "_BXg",
+      "type": "rich_text",
+      "rich_text": [
+        {
+          "type": "text",
+          "text": {
+            "content": "cm05cqenk0001yunh5n1phf0q",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "cm05cqenk0001yunh5n1phf0q",
+          "href": null
+        }
+      ]
+    },
+    "Solicitante": {
+      "id": "a%3DVL",
+      "type": "email",
+      "email": "robert.garcia@mauiandsons.cl"
+    },
+    "Actions": {
+      "id": "b%3D%3E%3A",
+      "type": "relation",
+      "relation": [],
+      "has_more": false
+    },
+    "Start": {
+      "id": "e~%3AM",
+      "type": "date",
+      "date": null
+    },
+    "Estimación": {
+      "id": "h%3ENS",
+      "type": "date",
+      "date": null
+    },
+    "End": {
+      "id": "wLK%40",
+      "type": "date",
+      "date": null
+    },
+    "Marca": {
+      "id": "wSPQ",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "306d715b-1f46-4b1b-af7f-ddcabf43af3d",
+          "name": "ADMIN",
+          "color": "brown"
+        }
+      ]
+    },
+    "ID": {
+      "id": "xDbT",
+      "type": "unique_id",
+      "unique_id": {
+        "prefix": "TAG",
+        "number": 7
+      }
+    },
+    "Nombre": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Vuelvo a probar una ultima vez",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Vuelvo a probar una ultima vez",
+          "href": null
+        }
+      ]
+    }
+  },
+  "url": "https://www.notion.so/Vuelvo-a-probar-una-ultima-vez-2cea872aa1b8446daf9b11dc862e92da",
+  "public_url": "https://mauiandsonscl.notion.site/Vuelvo-a-probar-una-ultima-vez-2cea872aa1b8446daf9b11dc862e92da",
+  "request_id": "0c74b9e7-8397-4136-a54e-15d7a7f63a14"
+}
