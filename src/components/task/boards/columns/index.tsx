@@ -19,7 +19,7 @@ export const ColumnBoard = forwardRef<HTMLDivElement, ColumnBoardProps>(
           'rounded max-w-full flex-1 flex flex-col w-full gap-2 relative',
           clsx(
             view
-              ? `bg-${color}-900 min-w-72 lg:max-w-80 py-2 px-4`
+              ? `bg-${color} min-w-72 lg:max-w-80 py-2 px-4`
               : 'bg-transparent'
           )
         )}
@@ -28,7 +28,7 @@ export const ColumnBoard = forwardRef<HTMLDivElement, ColumnBoardProps>(
           onClick={onClick}
           className={cn(
             'w-fit font-bold capitalize flex justify-start items-center gap-2 cursor-pointer pl-2 min-w-32',
-            clsx(view ? `text-${color}-300` : `text-${color}-500`)
+            `text-${color}-foreground`
           )}>
           {name.toLowerCase()}
         </p>

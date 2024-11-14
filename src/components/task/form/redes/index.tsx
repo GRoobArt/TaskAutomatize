@@ -57,8 +57,8 @@ export const FormSocialTask = () => {
     name: '',
     url: '',
     solicitador: session?.user?.email as string,
-    project: '2187b63c-03a9-4314-84f1-ebaf40135cd1',
-    priority: 'bfc1f74f-36ea-4c8b-8adc-bdb025445d16',
+    project: '13eab8f4-3aa0-808e-b7d0-f4bce3a9c307',
+    priority: '13eab8f4-3aa0-813f-af46-c000e74e3b2e',
     type: 'REDES',
     brands: '',
     endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
@@ -104,12 +104,10 @@ export const FormSocialTask = () => {
 
   if (!brands) return
 
-  const items = brands
-    .filter((brand) => brand.name !== 'ADMIN')
-    .map((brand) => ({
-      id: brand.name,
-      label: brand.name,
-    }))
+  const items = brands.map((brand) => ({
+    id: brand.name,
+    label: brand.name,
+  }))
 
   const resetBlank = () => {
     form.reset(defaultValues)
@@ -160,7 +158,7 @@ export const FormSocialTask = () => {
               <FormItem>
                 <FormLabel>Url</FormLabel>
                 <FormControl>
-                  <Input placeholder='https://mauiandsons.cl' {...field} />
+                  <Input placeholder='' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -70,8 +70,8 @@ export const FormCustomTask = () => {
     name: '',
     url: '',
     solicitador: session?.user?.email as string,
-    project: '532783b3-4aa2-4374-89e1-8cb97cea1bc6',
-    priority: 'bfc1f74f-36ea-4c8b-8adc-bdb025445d16',
+    project: '13eab8f4-3aa0-80a5-ad78-e521d54a702b',
+    priority: '13eab8f4-3aa0-813f-af46-c000e74e3b2e',
     action: '',
     type: 'CUSTOM',
     brands: [],
@@ -86,12 +86,12 @@ export const FormCustomTask = () => {
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     if (!task) {
-      createTask(event, data)
+      await createTask(event, data)
       form.reset()
       return
     }
 
-    createTask(event, data, task.id)
+    await createTask(event, data, task.id)
     form.reset(defaultValues)
     return
   }
@@ -204,7 +204,7 @@ export const FormCustomTask = () => {
               <FormItem>
                 <FormLabel>Url</FormLabel>
                 <FormControl>
-                  <Input placeholder='https://mauiandsons.cl' {...field} />
+                  <Input placeholder='' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

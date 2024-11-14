@@ -68,8 +68,8 @@ export const FormWebTask = () => {
     name: '',
     url: '',
     solicitador: session?.user?.email as string,
-    project: '3c60c092-c475-497d-b2e7-0b64d4090b04',
-    priority: 'bfc1f74f-36ea-4c8b-8adc-bdb025445d16',
+    project: '13eab8f4-3aa0-80ae-af03-f8e5e67b5ca8',
+    priority: '13eab8f4-3aa0-813f-af46-c000e74e3b2e',
     type: 'WEB',
     area: '',
     brands: '',
@@ -117,12 +117,10 @@ export const FormWebTask = () => {
 
   if (!brands || !areas) return
 
-  const itemsBrads = brands
-    .filter((brand) => brand.name !== 'ADMIN')
-    .map((brand) => ({
-      id: brand.name,
-      label: brand.name,
-    }))
+  const itemsBrads = brands.map((brand) => ({
+    id: brand.name,
+    label: brand.name,
+  }))
 
   let notViewArea = ['Redes Sociales', 'Mailing']
 
@@ -250,7 +248,7 @@ export const FormWebTask = () => {
               <FormItem>
                 <FormLabel>Url</FormLabel>
                 <FormControl>
-                  <Input placeholder='https://mauiandsons.cl' {...field} />
+                  <Input placeholder='' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

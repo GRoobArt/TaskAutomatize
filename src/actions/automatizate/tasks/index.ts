@@ -225,7 +225,7 @@ export const convertTaskRedesByNotion = async (
         email: solicitador,
       },
       Area: {
-        relation: [{ id: '4f2ea699-c2b8-46a0-b7a0-35cb4078fa38' }],
+        relation: [{ id: '13eab8f4-3aa0-818f-8ada-cdb6772a7143' }],
       },
       Estado: {
         status: {
@@ -361,7 +361,7 @@ export const convertTaskMailingByNotion = async (
         },
       },
       Area: {
-        relation: [{ id: '4af077a2-1ae3-4843-a24e-83670474321f' }],
+        relation: [{ id: '13eab8f4-3aa0-81cd-95e0-cade7447a5d6' }],
       },
       Nombre: {
         type: 'title',

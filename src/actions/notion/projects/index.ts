@@ -30,7 +30,7 @@ export const convertNotionByProject = async (
         properties.Count.rollup.number - properties.Completes.rollup.number,
       count: properties.Count.rollup.number,
       priority: properties.Priority.number,
-      url: project.public_url,
+      url: project.public_url ?? '',
     }
   })
   return res

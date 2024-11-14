@@ -2,58 +2,34 @@ import prisma from '../prisma'
 
 export async function createBrand() {
   await prisma.brand.upsert({
-    where: { name: 'MAUI' },
+    where: { name: 'NOTION' },
     update: {},
     create: {
-      name: 'MAUI',
+      name: 'NOTION',
     },
   })
 
   await prisma.brand.upsert({
-    where: { name: 'RIP' },
+    where: { name: 'NEON' },
     update: {},
     create: {
-      name: 'RIP',
+      name: 'NEON',
     },
   })
 
   await prisma.brand.upsert({
-    where: { name: 'VOLCOM' },
+    where: { name: 'PRISMA' },
     update: {},
     create: {
-      name: 'VOLCOM',
+      name: 'PRISMA',
     },
   })
 
   await prisma.brand.upsert({
-    where: { name: 'RUSTY' },
+    where: { name: 'STRAPI' },
     update: {},
     create: {
-      name: 'RUSTY',
-    },
-  })
-
-  await prisma.brand.upsert({
-    where: { name: 'ADMIN' },
-    update: {},
-    create: {
-      name: 'ADMIN',
-    },
-  })
-
-  await prisma.brand.upsert({
-    where: { name: 'PROSURF' },
-    update: {},
-    create: {
-      name: 'PROSURF',
-    },
-  })
-
-  await prisma.brand.upsert({
-    where: { name: 'GLOBE' },
-    update: {},
-    create: {
-      name: 'GLOBE',
+      name: 'STRAPI',
     },
   })
 }

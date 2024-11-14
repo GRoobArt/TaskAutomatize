@@ -59,6 +59,30 @@ const config = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        gray: {
+          DEFAULT: 'hsl(var(--gray))',
+          foreground: 'hsl(var(--gray-foreground))',
+        },
+        zinc: {
+          DEFAULT: 'hsl(var(--zinc))',
+          foreground: 'hsl(var(--zinc-foreground))',
+        },
+        blue: {
+          DEFAULT: 'hsl(var(--blue))',
+          foreground: 'hsl(var(--blue-foreground))',
+        },
+        yellow: {
+          DEFAULT: 'hsl(var(--yellow))',
+          foreground: 'hsl(var(--yellow-foreground))',
+        },
+        green: {
+          DEFAULT: 'hsl(var(--green))',
+          foreground: 'hsl(var(--green-foreground))',
+        },
+        red: {
+          DEFAULT: 'hsl(var(--red))',
+          foreground: 'hsl(var(--red-foreground))',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
